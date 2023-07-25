@@ -1,3 +1,3 @@
-# js13kgames project template
+# Kontra Game POC 
 
-Template to create games for the js13kgames competition, using TypeScript, Kontra.js and webpack.
+POC and practice game for the js13kgames competition.
