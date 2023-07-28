@@ -6,8 +6,8 @@ export let sprites: Sprite[] = [];
 
 export function update() {
   sprites.forEach((bullet, i)=> {
-    bullet.ttl -= 1;
-    bullet.dx = 5;
+    bullet.ttl -= 2;
+    bullet.dy = -10;
     bullet.update();
     
     if (bullet.ttl <= 0) {
