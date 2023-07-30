@@ -1,26 +1,48 @@
-import { init, Sprite, GameLoop } from "kontra";
+import { init, Sprite, Text, GameLoop } from "kontra";
 import * as player from "./player";
 import * as bullets from "./bullets"; 
+import * as ships from "./ships";
 
 import { Globals } from "./Globals";
 
 let { canvas } = init();
 
-let T = 0;
+let message: string = "debug...";
+let debug = Text({
+  text: message,
+  font: '14px Arial',
+  color: Globals.colors[7],
+  x: 10,
+  y: 575,
+  textAlign: 'left'
+});
 
 let loop = GameLoop({ 
   update: function() { 
-    T += 1;
+    Globals.T += 1;
     player.move();
     player.sprite.update();
     player.control(canvas);
     bullets.update();
+
+    ships.spawn();
+    ships.update();
+    message = 'Ships: ' + ships.sprites.length; 
+    message += ' Bullets: ' + bullets.sprites.length; 
+    debug.text = message;
   },
   render: function() {
     player.sprite.render();
-    bullets.sprites.forEach((bullet)=> {
+    
+    bullets.sprites.forEach(bullet => {
       bullet.render();
     });
+
+    ships.sprites.forEach(ship => {
+      ship.render();
+    });
+
+    debug.render();
   }
 });
 
