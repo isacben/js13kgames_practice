@@ -4,7 +4,10 @@ import * as bullets from "./bullets";
 
 import { Globals } from "./Globals";
 
+import alien from './img/alien.png';
+
 export let sprites: Sprite[] = [];
+
 
 export function update() {
   sprites.forEach((ship, i)=> {
@@ -31,16 +34,21 @@ export function update() {
 
 export function spawn() {
   if (Globals.T % 30 === 0) {
+  let image = new Image();
+  image.src = alien;
+  image.onload = function() {
     let ship = Sprite({
-    x: Math.floor(Math.random() * 569) + 1,        // starting x,y position of the sprite
-    y: -40,
-    color: Globals.colors[3],  // fill color of the sprite rectangle
-    width: 30,     // width and height of the sprite rectangle
-    height: 30,
-    dy: 3
-  });
-  
-  sprites.push(ship);
+      x: Math.floor(Math.random() * 120*4) + 1,        // starting x,y position of the sprite
+      // x: 64 * 4,
+      y: -8*4,
+      // color: Globals.colors[3],  // fill color of the sprite rectangle
+      width: 32,     // width and height of the sprite rectangle
+      height: 32,
+      image: image,
+      dy: 2 
+    });
+    sprites.push(ship);
+    }
   }
 }
 

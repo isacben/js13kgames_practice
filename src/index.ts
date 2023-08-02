@@ -10,10 +10,10 @@ let { canvas } = init();
 let message: string = "debug...";
 let debug = Text({
   text: message,
-  font: '14px Arial',
+  font: '12px Arial',
   color: Globals.colors[7],
-  x: 10,
-  y: 575,
+  x: 2 * 4,
+  y: 123 * 4,
   textAlign: 'left'
 });
 
