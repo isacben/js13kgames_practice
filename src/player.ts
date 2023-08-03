@@ -1,6 +1,5 @@
 import { Sprite, initKeys, keyPressed, onKey, offKey } from "kontra";
 import * as bullets from "./bullets";
-
 import { Globals } from "./Globals";
 
 initKeys();
@@ -45,7 +44,6 @@ export function move() {
       sprite.x = 120*4;
   }
 
-
   onKey('space', function(e) {
     if (!shot) {
       shot = true;
@@ -59,7 +57,7 @@ export function move() {
 
 
 export function control(canvas: HTMLCanvasElement) {
-  if (sprite.x > canvas.width) {
+  // if (sprite.x > canvas.width) {
     // sprite.x = -sprite.width;
-  }
- }
+  // }
+}

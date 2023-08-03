@@ -1,5 +1,4 @@
 import { Sprite } from "kontra";
-
 import { Globals } from "./Globals";
 
 export let sprites: Sprite[] = [];
@@ -20,8 +19,8 @@ export function shoot(x: number, y: number) {
   let bullet = Sprite({
     x: x,
     y: y,
-    color: Globals.colors[9],  // fill color of the sprite rectangle
-    width: 32,     // width and height of the sprite rectangle
+    color: Globals.colors[9],
+    width: 32,
     height: 32,
 
     // custom properties

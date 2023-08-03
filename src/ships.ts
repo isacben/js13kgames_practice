@@ -1,13 +1,10 @@
 import { Sprite, collides } from "kontra";
 import * as player from "./player";
 import * as bullets from "./bullets";
-
 import { Globals } from "./Globals";
-
 import alien from './img/alien.png';
 
 export let sprites: Sprite[] = [];
-
 
 export function update() {
   sprites.forEach((ship, i)=> {
@@ -20,7 +17,7 @@ export function update() {
     bullets.sprites.forEach((bullet, j) => {
       if (collides(ship, bullet)) {
         destroy(i);
-        bullet.ttl = 0 
+        bullet.ttl = 0;
       }
     });
 
@@ -28,7 +25,6 @@ export function update() {
       destroy(i);
       player.sprite.color = Globals.colors[Math.floor(Math.random() * 14) + 1];
     }
- 
   });
 }
 
@@ -38,11 +34,10 @@ export function spawn() {
   image.src = alien;
   image.onload = function() {
     let ship = Sprite({
-      x: Math.floor(Math.random() * 120*4) + 1,        // starting x,y position of the sprite
+      x: Math.floor(Math.random() * 120*4) + 1,
       // x: 64 * 4,
       y: -8*4,
-      // color: Globals.colors[3],  // fill color of the sprite rectangle
-      width: 32,     // width and height of the sprite rectangle
+      width: 32,
       height: 32,
       image: image,
       dy: 2 
