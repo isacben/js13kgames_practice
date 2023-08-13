@@ -7,6 +7,10 @@ import { Globals } from "./Globals";
 
 let { canvas } = init();
 
+canvas.style.position = 'absolute';
+
+camera(10, 10);
+
 let message: string = "debug...";
 let debug = Text({
   text: message,
@@ -19,6 +23,12 @@ let debug = Text({
 
 let loop = GameLoop({ 
   update: function() { 
+    camera(10 + Globals.shake * (Math.floor(Math.random() * 2) - 1), 10 + Globals.shake * (Math.floor(Math.random() * 2) - 1));
+
+    if (Globals.shake > 0) {
+      Globals.shake *= 0.5;
+    }
+
     Globals.T += 1;
     player.move();
     player.sprite.update();
@@ -47,3 +57,8 @@ let loop = GameLoop({
 });
 
 loop.start();
+
+function camera(left: number, top: number) {
+  canvas.style.left = left + "px";
+  canvas.style.top = top + "px";
+}

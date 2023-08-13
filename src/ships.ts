@@ -24,6 +24,7 @@ export function update() {
     if (collides(ship, player.sprite)) {
       destroy(i);
       player.sprite.color = Globals.colors[Math.floor(Math.random() * 14) + 1];
+      Globals.shake = 9;
     }
   });
 }
@@ -32,6 +33,8 @@ export function spawn() {
   if (Globals.T % 30 === 0) {
   let image = new Image();
   image.src = alien;
+  image.width = 32;
+  image.height = 32;
   image.onload = function() {
     let ship = Sprite({
       x: Math.floor(Math.random() * 120*4) + 1,

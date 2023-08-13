@@ -3,6 +3,9 @@ import { Sprite } from "kontra";
 export class Globals {
   // public static bullets: Sprite[] = [];
   public static T: number = 0;
+  public static shake: number = 0;
+  public static is_shaking = false;
+
   public static colors: string[] = [
     '#000000', '#1D2B53', '#7E2553', '#008751', // 0  1  2  3
     '#AB5236', '#5F574F', '#C2C3C7', '#FFF1E8', // 4  5  6  7

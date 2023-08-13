@@ -55,7 +55,6 @@ export function move() {
   }, {"handler": "keyup"}); 
 }
 
-
 export function control(canvas: HTMLCanvasElement) {
   // if (sprite.x > canvas.width) {
     // sprite.x = -sprite.width;
